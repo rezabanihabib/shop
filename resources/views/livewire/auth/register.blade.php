@@ -44,13 +44,15 @@ new
 
 <div class="flex items-center justify-center">
     <x-card title="Register" subtitle="Please Insert Your Information" separator progress-indicator class="w-96">
-        <x-form wire:submit="register" no-separator>
+        <x-form wire:submit="register">
             <x-input label="Name" wire:model="name" />
             <x-input label="Email" wire:model="email" />
             <x-password label="Password" wire:model="password" clearable />
             <x-password label="Password Confirmation" wire:model="password_confirmation" clearable />
 
             <x-slot:actions>
+                <x-button label="login" class="btn-primary btn-outline me-auto" link="{{ route('login') }}" />
+                <x-button label="Cancel" />
                 <x-button label="register" class="btn-primary" type="submit" spinner="register" />
             </x-slot:actions>
         </x-form>
