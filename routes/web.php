@@ -12,3 +12,8 @@ Route::middleware('guest')->group(function () {
     Volt::route('forgot-password', 'auth.forgot-password')->name('password.request');
     Volt::route('reset-password/{token}', 'auth.reset-password')->name('password.reset');
 });
+
+//Dashboard ROUTES
+Route::middleware('auth')->group(function () {
+    Volt::route('/dashboard', 'dashboard.index')->name('dashboard');
+});
