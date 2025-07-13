@@ -27,8 +27,19 @@
 
         {{-- Right side actions --}}
         <x-slot:actions>
-            <x-button label="Messages" icon="o-envelope" link="###" class="btn-ghost btn-sm" responsive />
-            <x-button label="Notifications" icon="o-bell" link="###" class="btn-ghost btn-sm" responsive />
+            @if (Route::has('login'))
+            <nav class="flex items-center justify-end gap-4">
+                @auth
+                <x-button label="dashboard" icon="o-bell" link="{{ route('dashboard') }}" class="btn-ghost btn-sm" responsive />
+                @else
+                <x-button label="login" icon="o-bell" link="{{ route('login') }}" class="btn-ghost btn-sm" responsive />
+
+                @if (Route::has('register'))
+                <x-button label="register" icon="o-bell" link="{{ route('register') }}" class="btn-ghost btn-sm" responsive />
+                @endif
+                @endauth
+            </nav>
+            @endif
         </x-slot:actions>
     </x-nav>
 
