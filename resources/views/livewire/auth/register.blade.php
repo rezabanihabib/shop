@@ -11,7 +11,7 @@ use Livewire\Volt\Component;
 
 new
     #[Layout('components.layouts.auth')]
-    #[Title('ثبت نام')]
+    #[Title('Register')]
     class extends Component
     {
         public string $name = '';

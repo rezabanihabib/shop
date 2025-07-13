@@ -5,12 +5,12 @@ use Livewire\Attributes\Title;
 use Livewire\Volt\Component;
 
 new
-    #[Layout('components.layouts.auth')]
-    #[Title('ورود')]
-    class extends Component
-    {
-        //
-    };
+#[Layout('components.layouts.auth')]
+#[Title('Login')]
+class extends Component
+{
+    //
+};
 
 ?>
 
