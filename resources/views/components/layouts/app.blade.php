@@ -30,12 +30,12 @@
             @if (Route::has('login'))
             <nav class="flex items-center justify-end gap-4">
                 @auth
-                <x-button label="dashboard" icon="o-bell" link="{{ route('dashboard') }}" class="btn-ghost btn-sm" responsive />
+                <x-button label="dashboard" link="{{ route('dashboard') }}" class="btnost btn-sm" responsive />
                 @else
-                <x-button label="login" icon="o-bell" link="{{ route('login') }}" class="btn-ghost btn-sm" responsive />
+                <x-button label="login" link="{{ route('login') }}" class="btn btn-sm" responsive />
 
                 @if (Route::has('register'))
-                <x-button label="register" icon="o-bell" link="{{ route('register') }}" class="btn-ghost btn-sm" responsive />
+                <x-button label="register" link="{{ route('register') }}" class="btn btn-sm" responsive />
                 @endif
                 @endauth
             </nav>
