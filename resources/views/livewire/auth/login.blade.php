@@ -44,7 +44,7 @@ new
             RateLimiter::clear($this->throttleKey());
             Session::regenerate();
 
-            $this->redirectIntended(default: route('home', absolute: false), navigate: true);
+            $this->redirectIntended(default: route('client.index', absolute: false), navigate: true);
         }
 
         /**

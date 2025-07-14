@@ -36,7 +36,7 @@ new
 
             Auth::login($user);
 
-            $this->redirectIntended(route('dashboard', absolute: false), navigate: true);
+            $this->redirectIntended(route('dashboard.index', absolute: false), navigate: true);
         }
     };
 
