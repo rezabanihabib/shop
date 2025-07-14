@@ -7,17 +7,17 @@ use Livewire\Volt\Volt;
 
 //ADMIN ROUTES
 Route::middleware(['auth', 'password.confirm'])->prefix('admin/')->name('admin.')->group(function () {
-    Route::get('/', 'index')->name('index');
+    Volt::route('/', 'admin.index')->name('index');
 });
 
 //ClIENT ROUTES
-Route::prefix('client/')->name('client.')->group(function () {
-    Route::get('/', 'index')->name('index');
+Route::name('client.')->group(function () {
+    Volt::route('/', 'client.index')->name('index');
 });
 
 //DASHBOARD ROUTES
 Route::middleware(['auth', 'password.confirm'])->prefix('dashboard/')->name('dashboard.')->group(function () {
-    Route::get('/', 'index')->name('index');
+    Volt::route('/', 'dashboard.index')->name('index');
 });
 
 //AUTH ROUTES
