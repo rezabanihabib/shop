@@ -30,11 +30,11 @@
             @if (Route::has('login'))
             <nav class="flex items-center justify-end gap-4">
                 @auth
-                <x-button label="dashboard" link="{{ route('dashboard') }}" class="btnost btn-sm" responsive />
+                <x-button label="dashboard" link="{{ route('dashboard.index') }}" class="btnost btn-sm" responsive />
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
                     @method("Post")
-                    <x-button label="logout" class="btn btn-sm" type="submit" spinner="{{ route('dashboard') }}" responsive />
+                    <x-button label="logout" class="btn btn-sm" type="submit" responsive />
                 </form>
                 @else
                 <x-button label="login" link="{{ route('login') }}" class="btn btn-sm" responsive />
