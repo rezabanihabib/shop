@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Controllers\Auth\VerifyEmailController;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Session;
 use Livewire\Volt\Volt;
 
 //ADMIN ROUTES
@@ -16,7 +16,7 @@ Route::name('client.')->group(function () {
 });
 
 //DASHBOARD ROUTES
-Route::middleware(['auth', 'password.confirm'])->prefix('dashboard/')->name('dashboard.')->group(function () {
+Route::middleware(['auth', 'verified'])->prefix('dashboard/')->name('dashboard.')->group(function () {
     Volt::route('/', 'dashboard.index')->name('index');
 });
 
@@ -30,17 +30,8 @@ Route::middleware('guest')->group(function () {
 
 Route::middleware('auth')->group(function () {
     Volt::route('verify-email', 'auth.verify-email')->name('verification.notice');
-
-    // Route::get('verify-email/{id}/{hash}', VerifyEmailController::class)->middleware(['signed', 'throttle:6,1'])->name('verification.verify');
-
+    Route::get('verify-email/{id}/{hash}', VerifyEmailController::class)->middleware(['signed', 'throttle:6,1'])->name('verification.verify');
     Volt::route('confirm-password', 'auth.confirm-password')->name('password.confirm');
 });
 
-Route::post('/logout', function () {
-    Auth::guard('web')->logout();
-
-    Session::invalidate();
-    Session::regenerateToken();
-
-    return redirect('/');
-})->name('logout');
+Route::post('logout', LogoutController::class)->name('logout');
